@@ -7,3 +7,13 @@
 // [“Hello”, “2”, “world”, “:-)”] → [“2”, “:-)”]
 // [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 // [“Russia”, “Denmark”, “Kazan”] → []
+Console.Clear();
+string[] Prompt(string message)
+{
+    Console.Write(message);
+    string[] result = (Console.ReadLine().Split(' ',StringSplitOptions.RemoveEmptyEntries));
+    return result;
+}
+string[] input = Prompt("Введите значения через запятую в кавычках: ");
+Console.WriteLine(String.Join(" ", input));
+Console.WriteLine(input[0]);

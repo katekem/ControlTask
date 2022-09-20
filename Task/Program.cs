@@ -15,7 +15,37 @@ string[] Prompt(string message)
     string[] array = result.Split(' ',StringSplitOptions.RemoveEmptyEntries);
     return array;
 }
+
+int CountNewArraySize(string[] array)
+{int newArraySize = 0;
+for (int i = 0; i < array.Length; i++)
+{
+    if(array[i].Length <= 3)
+    newArraySize ++;
+}
+return newArraySize;
+}
+
 string[] input = Prompt("Введите значения через запятую без кавычек: ");
-Console.WriteLine(String.Join(" ", input));
-Console.WriteLine(input[0]);
+
+if (CountNewArraySize(input) == 0)
+{
+    Console.WriteLine("Трехзначных элементов нет");
+}
+else
+{
+    string newArray = string.Empty;
+        for (int i = 0; i < input.Length; i++)
+        {
+            if (input[i].Length <= 3)
+            {
+                newArray = $"{newArray} {input[i]}";
+            }
+        }
+    string[] finalArray = newArray.Split(' ',StringSplitOptions.RemoveEmptyEntries);
+    Console.WriteLine(String.Join(" ", finalArray));
+}
+
+
+
 

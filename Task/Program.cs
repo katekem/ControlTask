@@ -11,9 +11,11 @@ Console.Clear();
 string[] Prompt(string message)
 {
     Console.Write(message);
-    string[] result = (Console.ReadLine().Split(' ',StringSplitOptions.RemoveEmptyEntries));
-    return result;
+    string result = Console.ReadLine().Replace(",","");
+    string[] array = result.Split(' ',StringSplitOptions.RemoveEmptyEntries);
+    return array;
 }
-string[] input = Prompt("Введите значения через запятую в кавычках: ");
+string[] input = Prompt("Введите значения через запятую без кавычек: ");
 Console.WriteLine(String.Join(" ", input));
 Console.WriteLine(input[0]);
+
